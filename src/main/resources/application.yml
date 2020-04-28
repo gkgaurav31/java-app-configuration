@@ -1,0 +1,4 @@
+azure:
+  message: {'[keypart1/keypart2]':'value1','[keypart3/keypart4]':'value2'}
+server:
+  port: 8081
