@@ -1,7 +1,12 @@
 package com.gauk;
 
+import java.io.IOException;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @RestController
 public class HelloController {
@@ -11,14 +16,12 @@ public class HelloController {
     public HelloController(MessageProperties properties) {
         this.properties = properties;
     }
+    
 
     @GetMapping
-    public String getMessage() {
-    	
-    	//properties.getMap().forEach((key, value) -> System.out.println(key + " " + value));
+    public String getMessage() throws JsonParseException, JsonMappingException, IOException {
     	
     	System.out.println("MAP from AppConfiguration::: " + properties.getMymap());
-    	System.out.println("MAP from application.yml::: " + properties.getMessage());
     	
     	return "OK";
     	
